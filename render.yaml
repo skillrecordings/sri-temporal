@@ -269,7 +269,7 @@ services:
 # See https://github.com/render-examples/temporal-rest-proxy
 - type: web
   name: rest-to-grpc-proxy
-  repo: https://github.com/render-examples/temporal-rest-proxy
+  repo: https://github.com/skillrecordings/temporal-rest-proxy
   autoDeploy: false
   plan: Starter
   region: oregon
@@ -285,13 +285,13 @@ services:
   - key: AUTH_TOKEN
     sync: false
 - type: web
-  repo: https://github.com/render-examples/sample-temporal-app
+  repo: hhttps://github.com/joelhooks/temporal-monorepo-folders
   name: app-workflow-trigger
   plan: Starter
   region: oregon
-  env: go
-  buildCommand: go build start/main.go
-  startCommand: ./main
+  env: node
+  buildCommand: yarn build
+  startCommand: yarn start
   envVars:
   - key: TEMPORAL_CLUSTER_HOST
     fromService:
@@ -299,13 +299,13 @@ services:
       type: pserv
       property: host
 - type: worker
-  repo: https://github.com/render-examples/sample-temporal-app
+  repo: https://github.com/joelhooks/temporal-monorepo-folders
   name: app-worker
   plan: Starter
   region: oregon
-  env: go
-  buildCommand: go build worker/main.go
-  startCommand: ./main
+  env: node
+  buildCommand: yarn build
+  startCommand: yarn worker
   envVars:
   - key: TEMPORAL_CLUSTER_HOST
     fromService:
