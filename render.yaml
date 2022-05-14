@@ -290,7 +290,7 @@ services:
   plan: Starter
   region: oregon
   env: node
-  buildCommand: yarn build
+  buildCommand: yarn && yarn build
   startCommand: yarn start
   envVars:
   - key: TEMPORAL_CLUSTER_HOST
@@ -304,7 +304,7 @@ services:
   plan: Starter
   region: oregon
   env: node
-  buildCommand: yarn build
+  buildCommand: yarn && yarn build
   startCommand: yarn worker
   envVars:
   - key: TEMPORAL_CLUSTER_HOST
